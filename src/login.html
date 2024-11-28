@@ -3,25 +3,47 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/header.css" />
 		<link rel="stylesheet" href="../css/login.css" />
 		<title>Login MBW</title>
 	</head>
 	<body>
-		<div class="login-container">
-			<form action="/login" method="post">
-				<a href="../index.html"> <img src="../img/logo.png" alt="" /></a>
-				<div id="form-group-container">
-					<div class="form-group">
-						<!-- <label for="email">Email:</label> -->
-						<input type="text" id="email" name="email" required placeholder="email" />
+		<header>
+			<nav class="navbar">
+				<div id="expand-nav-btn" class="nav-hamburger">
+					<div class="line line-1">
+						<div class="line-inner line-inner-1"></div>
 					</div>
-					<div class="form-group">
-						<!-- <label for="password">Password:</label> -->
-						<input type="password" id="password" name="password" required placeholder="password" />
+					<div class="line line-2">
+						<div class="line-inner line-inner-2"></div>
 					</div>
 				</div>
-				<button type="submit">LOG IN</button>
+				<a class="logo-container" href="../index.html">
+					<img src="../img/logo.png" id="logo" />
+				</a>
+				<ul id="nav-links" class="navigation-links hidden">
+					<li><a href="#">Historia</a></li>
+					<li><a href="../src/muntatge.html">Muntatge</a></li>
+					<li><a href="../src/news.html">Noticies</a></li>
+					<li><a href="#">Al voltant de la balena</a></li>
+				</ul>
+				<a id="login-btn" href="../src/login.html">Log in</a>
+			</nav>
+		</header>
+		<div class="login-container">
+			<form action="/login" method="post">
+				<!-- <a href="../index.html"> <img id="login-image" src="../img/logo.png" alt="" /></a> -->
+				<h1 id="login-title">Login</h1>
+				<div id="input-container">
+					<!-- <label for="email">Email:</label> -->
+					<input type="text" id="email" name="email" required placeholder="email" />
+					<!-- <label for="password">Password:</label> -->
+					<input type="password" id="password" name="password" required placeholder="password" />
+				</div>
+				<button id="submit-btn" type="submit">Login</button>
 			</form>
 		</div>
+
+		<script src="../src/js/mobile-nav.js"></script>
 	</body>
 </html>
