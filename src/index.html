@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+		<title>Balena</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar">
+				<div id="expand-nav-btn" class="nav-hamburger">
+					<div class="line line-1">
+						<div class="line-inner line-inner-1"></div>
+					</div>
+					<div class="line line-2">
+						<div class="line-inner line-inner-2"></div>
+					</div>
+				</div>
+				<a class="logo-container" href="/src/index.html">
+					<img src="/img/logo.png" id="logo" />
+				</a>
+				<ul id="nav-links" class="navigation-links hidden">
+					<li><a href="#">Historia</a></li>
+					<li><a href="/src/muntatge.html">Muntatge</a></li>
+					<li><a href="/src/news.html">Noticies</a></li>
+					<li><a href="#">Al voltant de la balena</a></li>
+				</ul>
+				<a id="login-btn" href="/src/login.html">Log in</a>
+			</nav>
+		</header>
+		<main>
+			<section id="hero">
+				<div id="model-container">
+					<iframe
+						id="whale-viewer"
+						title="Blue whale skeleton"
+						frameborder="0"
+						allowfullscreen
+						mozallowfullscreen="true"
+						webkitallowfullscreen="true"
+						allow="autoplay; fullscreen; xr-spatial-tracking"
+						xr-spatial-tracking
+						execution-while-out-of-viewport
+						execution-while-not-rendered
+						web-share
+						src="https://sketchfab.com/models/8502dbef80ed4aa688c13c90cb14de73/embed?autostart=1&camera=0&annotations_visible=0&transparent=1&dnt=1"
+					>
+					</iframe>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+
+		<script src="/src/js/mobile-nav.js"></script>
+	</body>
+</html>
