@@ -39,8 +39,6 @@ body {
 	justify-content: center;
 	height: calc(100vh - 4rem);
 	width: 100%;
-	/* padding: 1rem; */
-	/* padding: 20px; */
 }
 
 form {
@@ -54,8 +52,8 @@ form {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	background-color: rgb(255, 255, 255);
-	backdrop-filter: blur(20px);
-	padding: 3rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	padding: 2rem;
 	border-radius: 8px;
 }
 
@@ -63,7 +61,7 @@ form {
 	font-size: 2.5rem;
 	font-weight: 700;
 	letter-spacing: -0.5px;
-	margin: 0rem 0rem 2rem 0rem;
+	margin: 0rem 0rem 0rem 0rem;
 }
 
 input {
@@ -76,8 +74,14 @@ input {
 	font-size: 1.2rem;
 	/* margin: 1rem; */
 	margin: 1rem 0rem;
+	/* border: 1px solid black;   */
 	border-radius: 0.3rem;
+	border: 1px solid #ccc;
 	box-shadow: 0 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+	color: #9ca3af;
 }
 
 #login-image {
