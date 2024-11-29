@@ -10,7 +10,7 @@
 }
 
 header {
-	/* position: fixed; */
+	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
@@ -18,8 +18,9 @@ header {
 
 .navbar {
 	height: 4rem;
-	background-color: #fff;
-	border-bottom: 1px solid #e9ecef;
+	background-color: #ffffff86;
+	/* border-bottom: 1px solid #e9ecef; */
+	backdrop-filter: blur(10px);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -43,6 +44,7 @@ header {
 	margin: 0;
 	height: 100%;
 	list-style: none;
+	animation: fadein 0.5s ease-in-out;
 }
 
 #nav-links {
@@ -59,6 +61,15 @@ header {
 
 a {
 	text-decoration: none;
+}
+
+#nav-links > li {
+	text-decoration: none;
+	transition: transform 0.3s ease;
+}
+
+#nav-links > li:hover {
+	transform: scale(1.05);
 }
 
 .navigation-links.hidden {
@@ -148,6 +159,7 @@ a {
 	}
 
 	.nav-hamburger {
+		animation: fadein 0.5s ease-in-out;
 		display: none;
 	}
 

@@ -5,224 +5,42 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	color: #fff;
 	scroll-behavior: smooth;
 }
 
 body {
 	font-family: "Poppins", sans-serif;
-	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.7;
 	height: 100vh;
 	background-color: #f8f9fa;
 }
-header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 1000;
-}
-.navbar {
-	height: 4rem;
-	background-color: #ffff;
-	border-bottom: 1px solid #e9ecef;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#logo {
-	margin-left: 1rem;
-	width: fit-content;
-	height: 3.8rem;
-}
-
-.navigation-links.show {
-	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: start;
-	flex-wrap: wrap;
-	font-size: 1rem;
-	padding: 0;
-	margin: 0;
-	height: 100%;
-	list-style: none;
-}
-
-#nav-links {
-	position: absolute;
-	padding: 3rem 3rem;
-	font-size: 1.75rem;
-	font-optical-sizing: auto;
-	font-weight: 600;
-	font-style: normal;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background-color: #161617;
-}
-
-.navigation-links.hidden {
-	display: none;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:focus,
-button:focus {
-	outline: 2px solid #000;
-	outline-offset: 2px;
-}
-
-.nav-hamburger {
-	cursor: pointer;
-	z-index: 1000;
-	border: 0;
-	margin-left: 1rem;
-	background-color: rgba(255, 255, 255, 0);
-}
-
-.line-inner-1 {
-	top: 10px;
-}
-.line-inner-2 {
-	bottom: 10px;
-}
-
-.nav-hamburger.active .line-1 {
-	transform: rotateZ(45deg);
-	transition: 0.3s ease;
-	-webkit-transition: 0.3s ease;
-	-moz-transition: 0.3s ease;
-	-ms-transition: 0.3s ease;
-	-o-transition: 0.3s ease;
-	-webkit-transform: rotateZ(45deg);
-	-moz-transform: rotateZ(45deg);
-	-ms-transform: rotateZ(45deg);
-	-o-transform: rotateZ(45deg);
-}
-
-.nav-hamburger.active .line-2 {
-	transform: rotateZ(-45deg);
-	-webkit-transform: rotateZ(-45deg);
-	-moz-transform: rotateZ(-45deg);
-	-ms-transform: rotateZ(-45deg);
-	-o-transform: rotateZ(-45deg);
-	transition: 0.3s ease;
-	-webkit-transition: 0.3s ease;
-	-moz-transition: 0.3s ease;
-	-ms-transition: 0.3s ease;
-	-o-transition: 0.3s ease;
-}
-
-.nav-hamburger.active .line-inner {
-	background-color: #fff;
-	transform: none;
-	-webkit-transform: none;
-	-moz-transform: none;
-	-ms-transform: none;
-	-o-transform: none;
-}
-
-.nav-hamburger.active .line-inner-1 {
-	top: 14px;
-}
-
-.nav-hamburger.active .line-inner-2 {
-	bottom: 14px;
-}
-
-.line {
-	margin-top: 0.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: 0.3s ease;
-	-webkit-transition: 0.3s ease;
-	-moz-transition: 0.3s ease;
-	-ms-transition: 0.3s ease;
-	-o-transition: 0.3s ease;
-	position: absolute;
-	height: 32px;
-	width: 32px;
-	left: 4px;
-	top: 8px;
-}
-
-.line-inner {
-	position: absolute;
-	width: 20px;
-	height: 2px;
-	background-color: #16171b;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-}
-
-#login-btn {
-	transition: transform 0.3s ease;
-	background-color: #222327;
-	border: 1px solid #222327;
-	border-radius: 6px;
-	padding: 0.2rem 0.8rem;
-	color: #ffff;
-	font-size: 1rem;
-	font-weight: 500;
-	cursor: pointer;
-	margin-right: 1rem;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	-ms-border-radius: 6px;
-	-o-border-radius: 6px;
-	-webkit-transition: transform 0.3s;
-	-moz-transition: transform 0.3s;
-	-ms-transition: transform 0.3s;
-	-o-transition: transform 0.3s;
-}
-
-#login-btn:hover {
-	transform: scale(1.05);
-	-webkit-transform: scale(1.05);
-	-moz-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	-o-transform: scale(1.05);
-}
 
 main {
-	height: 100%;
+	margin-top: 4rem;
 }
 
-@media screen and (min-width: 700px) {
-	* {
-		color: #16171b;
-	}
+h1 {
+	font-size: 2.5rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	padding-left: 1rem;
+}
 
-	.nav-hamburger {
-		display: none;
-	}
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+	gap: 1rem;
+	padding: 1rem;
+}
 
-	.navigation-links.hidden,
-	.navigation-links.show {
-		display: flex;
-	}
+.gallery img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	transition: transform 0.3s ease;
+}
 
-	#nav-links {
-		position: relative;
-		width: max-content;
-		height: max-content;
-		padding: 0rem;
-		font-size: 1rem;
-		background-color: rgba(255, 255, 255, 0);
-	}
-
-	#nav-links li {
-		list-style-type: none;
-		margin: 1rem;
-	}
+.gallery img:hover {
+	transform: scale(1.05);
 }
