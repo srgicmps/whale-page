@@ -1,12 +1,12 @@
-const expandNavBtn = document.getElementById("expand-nav-btn");
+const hamburgerBtn = document.getElementById("hamburger-btn");
 const navLinks = document.getElementById("nav-links");
 
-if (expandNavBtn && navLinks) {
-	expandNavBtn.addEventListener("click", function () {
+if (hamburgerBtn && navLinks) {
+	hamburgerBtn.addEventListener("click", function () {
 		console.log("hola");
 		navLinks.classList.toggle("show");
 		navLinks.classList.toggle("hidden");
-		expandNavBtn.classList.toggle("active");
+		hamburgerBtn.classList.toggle("active");
 	});
 }
 
