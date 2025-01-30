@@ -1,0 +1,135 @@
+// VARIABLES
+
+// colors
+$dark-color: #16171b;
+$dark-transparent-color: rgba(0, 0, 0, 0.9);
+$light-transparent-color: #ffffff78;
+$black: #000;
+$white: #fff;
+
+//breakpoints
+$mobile-breakpoint: 730xp;
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+
+	.navbar {
+		height: 4rem;
+		background-color: $light-transparent-color;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 3rem;
+		backdrop-filter: blur(10px);
+
+		#hamburger-btn {
+			width: 30px;
+			height: 30px;
+		}
+
+		#logo {
+			width: fit-content;
+			height: 3rem;
+		}
+
+		#nav-links {
+			list-style: none;
+			animation: fadein 0.5s ease-in-out;
+			position: absolute;
+			padding: 3rem;
+			font-size: 1.75rem;
+			font-weight: 600;
+			top: 96px;
+			left: 0;
+			width: 100%;
+			height: calc(100vh - 96px);
+			background-color: $dark-transparent-color;
+
+			li {
+				text-decoration: none;
+				transition: transform 0.3s ease;
+
+				a {
+					color: $white;
+				}
+
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+
+		.navigation-links.hidden {
+			display: none;
+		}
+
+		#login-btn {
+			transition: transform 0.3s ease;
+			background-color: $dark-color;
+			border: 1px solid $dark-color;
+			border-radius: 6px;
+			padding: 0.2rem 0.8rem;
+			color: $white;
+			font-size: 1rem;
+			font-weight: 500;
+			cursor: pointer;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			-ms-border-radius: 6px;
+			-o-border-radius: 6px;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+	* {
+		color: $dark-color;
+	}
+
+	#hamburger-btn {
+		animation: fadein 0.5s ease-in-out;
+		display: none;
+	}
+
+	.navigation-links.hidden,
+	.navigation-links.show {
+		display: flex;
+	}
+
+	#nav-links {
+		position: relative;
+		width: max-content;
+		height: max-content;
+		padding: 0;
+		top: 0;
+		font-size: 1rem;
+		background-color: $black;
+
+		li {
+			list-style-type: none;
+			margin: 1rem;
+		}
+	}
+}

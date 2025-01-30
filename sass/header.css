@@ -1,0 +1,107 @@
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .navbar {
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.4705882353);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+header .navbar #hamburger-btn {
+  width: 30px;
+  height: 30px;
+}
+header .navbar #logo {
+  width: fit-content;
+  height: 3rem;
+}
+header .navbar #nav-links {
+  list-style: none;
+  animation: fadein 0.5s ease-in-out;
+  position: absolute;
+  padding: 3rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  top: 96px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 96px);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+header .navbar #nav-links li {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+header .navbar #nav-links li a {
+  color: #fff;
+}
+header .navbar #nav-links li:hover {
+  transform: scale(1.05);
+}
+header .navbar .navigation-links.hidden {
+  display: none;
+}
+header .navbar #login-btn {
+  transition: transform 0.3s ease;
+  background-color: #16171b;
+  border: 1px solid #16171b;
+  border-radius: 6px;
+  padding: 0.2rem 0.8rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+header .navbar #login-btn:hover {
+  transform: scale(1.05);
+}
+header .navbar a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 730xp) {
+  * {
+    color: #16171b;
+  }
+  #hamburger-btn {
+    animation: fadein 0.5s ease-in-out;
+    display: none;
+  }
+  .navigation-links.hidden,
+  .navigation-links.show {
+    display: flex;
+  }
+  #nav-links {
+    position: relative;
+    width: max-content;
+    height: max-content;
+    padding: 0;
+    top: 0;
+    font-size: 1rem;
+    background-color: #000;
+  }
+  #nav-links li {
+    list-style-type: none;
+    margin: 1rem;
+  }
+}/*# sourceMappingURL=header.css.map */

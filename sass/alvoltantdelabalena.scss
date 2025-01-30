@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+/* General styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f9f9f9;
+	color: #333;
+	font-family: "Poppins", sans-serif;
+}
+
+header {
+	position: relative;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.container {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+/* Whale parts buttons */
+.whale-part {
+	margin: 10px 0;
+	padding: 15px;
+	background-color: #e0f7fa;
+	border: 1px solid #00acc1;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+.whale-part:hover {
+	background-color: #b2ebf2;
+	border-color: #00838f;
+}
+
+.whale-part h2 {
+	margin: 0;
+	color: #00796b;
+}
+
+/* Whale image container */
+.whale-image-container {
+	position: relative;
+	width: 80%;
+	height: 80vh; /* Slightly smaller height */
+	margin: 0 auto; /* Center the image container */
+	border-radius: 10px; /* Rounded corners */
+	overflow: hidden;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for a nice effect */
+	margin-bottom: 5rem;
+}
+
+.whale-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Ensure the image covers the container */
+}
+
+/* Clickable areas on the image */
+.clickable-area {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: rgba(255, 0, 0, 0.5);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+	background-color: #fff;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+	border-radius: 10px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.clickable-area {
+		display: none;
+	}
+
+	.whale-image {
+		display: none;
+	}
+
+	.whale-part {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	* {
+		color: #000;
+	}
+}
+
+/* H1 styles */
+h1 {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+
+	text-transform: uppercase;
+	font-family: "Poppins", serif; /* A nice font */
+	margin: 0;
+	padding: 20px;
+	text-align: center;
+	color: #000;
+	border-radius: 5px;
+}
