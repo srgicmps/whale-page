@@ -43,5 +43,32 @@
 		</div>
 
 		<script src="../src/js/mobile-nav.js"></script>
+		<script>
+			$(document).ready(function () {
+				function validateLogin(email, password) {
+					$.getJSON("../json/keys.json", function (keys) {
+						const user = JSON.parse(localStorage.getItem("user"));
+						if (user && user.email === email) {
+							const saltedPassword = password + keys.salt;
+							const passwordHash = CryptoJS.SHA256(saltedPassword).toString();
+							if (passwordHash === keys.hash) {
+								alert("Login successful");
+							} else {
+								alert("Login failed");
+							}
+						} else {
+							alert("Login failed");
+						}
+					});
+				}
+
+				$("#loginForm").submit(function (event) {
+					event.preventDefault();
+					const email = $("#email").val();
+					const password = $("#password").val();
+					validateLogin(email, password);
+				});
+			});
+		</script>
 	</body>
 </html>
