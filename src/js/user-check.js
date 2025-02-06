@@ -4,7 +4,7 @@ $(document).ready(function () {
 	}
 	function createDefaultUser() {
 		// TODO: CRYPTO JS*
-		const password = "Ramis.20";
+		const password = "Ramis.20"; // Llevar Ramis.20 del codi
 		const salt = generateSalt();
 		const saltedPassword = password + salt;
 		const passwordHash = CryptoJS.SHA256(saltedPassword).toString();
