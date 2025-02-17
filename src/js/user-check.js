@@ -2,8 +2,8 @@ $(document).ready(function () {
 	function generateSalt() {
 		return CryptoJS.lib.WordArray.random(128 / 8).toString();
 	}
+
 	function createDefaultUser() {
-		// TODO: CRYPTO JS*
 		const password = "Ramis.20"; // Llevar Ramis.20 del codi
 		const salt = generateSalt();
 		const saltedPassword = password + salt;
@@ -39,11 +39,11 @@ $(document).ready(function () {
 			},
 		});
 
-		localStorage.setItem("user", JSON.stringify(defaultUser));
+		localStorage.setItem("user", JSON.stringify([defaultUser]));
 	}
 
 	// Comprova si s'usuari existeix a localStorage
-	if (!localStorage.getItem("user")) {
+	if (!localStorage.getItem("user") || JSON.parse(localStorage.getItem("user")).length === 0) {
 		createDefaultUser();
 	}
 
