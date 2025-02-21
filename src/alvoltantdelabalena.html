@@ -4,9 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
 		<link rel="stylesheet" href="../sass/alvoltantdelabalena.css" />
 		<script src="./js/user-check.js"></script>
-
 		<title>Al voltant de la balena</title>
 	</head>
 	<body>
@@ -15,7 +15,7 @@
 				<a id="hamburger-btn">
 					<img src="../assets/icons/bars-solid-dark.svg" class="hamburger-btn__darkicon" alt="" />
 				</a>
-				<a class="logo-container" href="../index.html">
+				<a clas="logo-container" href="../index.html">
 					<img src="/img/logo.png" id="logo" />
 				</a>
 				<ul id="nav-links" class="navigation-links hidden">
@@ -29,128 +29,117 @@
 		</header>
 
 		<main>
-			<section id="whale-parts-container">
-				<h1>Al voltant de la balena</h1>
-				<div class="whale-image-container">
-					<img
-						src="../assets/images/Lagenorhynchus_albirostris_-_skeleton-scaled.png"
-						alt="Whale Diagram"
-						class="whale-image"
-					/>
-					<div class="whale-parts">
-						<div
-							class="whale-part"
-							id="head"
-							data-info="The head of the whale contains the brain, eyes, and blowhole. It is crucial for navigation, communication, and breathing. Whales have a highly developed brain that allows them to exhibit complex behaviors and social structures."
-							data-image="../assets/images/whale-head.jpg"
-						>
-							<h2>Head</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="flippers"
-							data-info="The flippers of the whale are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals and contain bones similar to those in a human arm."
-							data-image="../assets/images/whale-flippers.jpg"
-						>
-							<h2>Flippers</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="tail"
-							data-info="The tail of the whale, also known as the fluke, is used for propulsion. It moves up and down to push the whale through the water. The fluke is made of dense connective tissue and is very powerful."
-							data-image="../assets/images/whale-tail.jpg"
-						>
-							<h2>Tail</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="dorsal-fin"
-							data-info="The dorsal fin provides stability while swimming. It helps prevent the whale from rolling side to side and assists in making sharp turns."
-							data-image="../assets/images/whale-dorsal-fin.jpg"
-						>
-							<h2>Dorsal Fin</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="blowhole"
-							data-info="The blowhole is the whale's nostril, located on top of its head. It is used for breathing and is covered by a muscular flap that prevents water from entering the lungs."
-							data-image="../assets/images/whale-blowhole.jpg"
-						>
-							<h2>Blowhole</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="baleen"
-							data-info="Baleen plates are used by some whale species to filter food from the water. They are made of keratin and act like a sieve to trap small fish and plankton."
-							data-image="../assets/images/whale-baleen.jpg"
-						>
-							<h2>Baleen</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="pectoral-fins"
-							data-info="The pectoral fins are located on the sides of the whale and are used for steering and balance. They are similar to the flippers but are positioned differently."
-							data-image="../assets/images/whale-pectoral-fins.jpg"
-						>
-							<h2>Pectoral Fins</h2>
-						</div>
-						<div
-							class="whale-part"
-							id="blubber"
-							data-info="Blubber is a thick layer of fat beneath the whale's skin. It provides insulation, energy storage, and buoyancy."
-							data-image="../assets/images/whale-blubber.jpg"
-						>
-							<h2>Blubber</h2>
-						</div>
-					</div>
-
-					<div class="clickable-area" id="head-circle" data-part="head" style="top: 15%; left: 70%"></div>
-					<div
-						class="clickable-area"
-						id="flippers-circle"
-						data-part="flippers"
-						style="top: 30%; left: 70%"
-					></div>
-					<div class="clickable-area" id="tail-circle" data-part="tail" style="top: 13%; left: 25%"></div>
-					<div
-						class="clickable-area"
-						id="dorsal-fin-circle"
-						data-part="dorsal-fin"
-						style="top: 40%; left: 70%"
-					></div>
-					<div
-						class="clickable-area"
-						id="blowhole-circle"
-						data-part="blowhole"
-						style="top: 8%; left: 70%"
-					></div>
-					<div class="clickable-area" id="baleen-circle" data-part="baleen" style="top: 30%; left: 40%"></div>
-					<div
-						class="clickable-area"
-						id="pectoral-fins-circle"
-						data-part="pectoral-fins"
-						style="top: 60%; left: 20%"
-					></div>
-					<div
-						class="clickable-area"
-						id="blubber-circle"
-						data-part="blubber"
-						style="top: 70%; left: 60%"
-					></div>
+			<h1>Al voltant de la balena</h1>
+			<div class="cards-container">
+				<div
+					class="card"
+					data-info="The head of the whale contains the brain, eyes, and blowhole. It is crucial for navigation, communication, and breathing."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Head" />
+					<h2>Head</h2>
+					<p>Click to learn more</p>
 				</div>
-			</section>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+
+				<div
+					class="card"
+					data-info="The flippers are used for steering and maneuvering in the water. They are homologous to the forelimbs of land mammals."
+				>
+					<img src="/assets/images/whale-flipper.jpg" alt="Whale Flippers" />
+					<h2>Flippers</h2>
+					<p>Click to learn more</p>
+				</div>
+			</div>
 		</main>
 
-		<div id="modal" class="modal">
+		<footer>
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<p>© 2025 Whale Project</p>
+						<p>info@whaleproject.org</p>
+					</div>
+					<div class="footer-social">
+						<a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="/assets/icons/x.svg" alt="X" /></a>
+						<a href="#"><img src="/assets/icons/instagram.svg" alt="Instagram" /></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="modal" id="infoModal">
 			<div class="modal-content">
-				<span class="close-btn">&times;</span>
-				<h2 id="modal-title"></h2>
-				<img id="modal-image" src="" alt="Whale Part Image" />
-				<p id="modal-info"></p>
+				<span class="close">&times;</span>
+				<h2 id="modalTitle"></h2>
+				<img id="modalImage" src="" alt="Whale part detail" />
+				<p id="modalText"></p>
 			</div>
 		</div>
 
-		<script src="./js/modal.js"></script>
-		<script src="./src/js/mobile-nav.js"></script>
+		<script src="/src/js/modalAlvoltant.js" defer></script>
+		<script src="/src/js/mobile-nav.js"></script>
 	</body>
 </html>

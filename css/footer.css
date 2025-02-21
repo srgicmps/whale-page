@@ -1,0 +1,40 @@
+.footer-container {
+	background-color: #333;
+	padding: 20px;
+	margin-top: auto;
+}
+
+.footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.footer-info {
+	color: #fff;
+}
+
+.footer-info p {
+	margin: 5px 0;
+	font-size: 0.9em;
+}
+
+.footer-social {
+	display: flex;
+	gap: 15px;
+}
+
+.footer-social img {
+	width: 24px;
+	height: 24px;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+}
+
+.footer-social img:hover {
+	opacity: 1;
+}

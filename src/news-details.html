@@ -6,53 +6,29 @@
 		<title>News Detail</title>
 		<!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@4.0.0/dist/tailwind.min.css" rel="stylesheet" /> -->
 		<link rel="stylesheet" href="output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+
 		<script src="./js/user-check.js"></script>
 	</head>
 	<body class="">
-		<header class="bg-white shadow-md fixed w-full z-10 top-0">
-			<nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-				<a id="hamburger-btn" class="md:hidden">
-					<img src="../assets/icons/bars-solid-dark.svg" class="hamburger-btn__darkicon w-6 h-6" alt="Menu" />
+		<header>
+			<nav class="navbar">
+				<a id="hamburger-btn">
+					<img src="../assets/icons/bars-solid-dark.svg" class="hamburger-btn__darkicon" alt="" />
 				</a>
 				<a class="logo-container" href="../index.html">
-					<img src="../img/logo.png" id="logo" class="h-10" alt="Logo" />
+					<img src="../img/logo.png" id="logo" />
 				</a>
-				<ul id="nav-links" class="navigation-links hidden md:flex space-x-6">
-					<li><a href="#" class="text-gray-800 hover:text-gray-600">Historia</a></li>
-					<li><a href="../src/muntatge.html" class="text-gray-800 hover:text-gray-600">Muntatge</a></li>
-					<li><a href="../src/news.html" class="text-gray-800 hover:text-gray-600">Noticies</a></li>
-					<li>
-						<a href="../src/alvoltantdelabalena.html" class="text-gray-800 hover:text-gray-600"
-							>Al voltant de la balena</a
-						>
-					</li>
+				<ul id="nav-links" class="navigation-links hidden">
+					<li><a href="#">Historia</a></li>
+					<li><a href="../src/muntatge.html">Muntatge</a></li>
+					<li><a href="../src/news.html">Noticies</a></li>
+					<li><a href="../src/alvoltantdelabalena.html">Al voltant de la balena</a></li>
 				</ul>
-				<a id="login-btn" href="../src/login.html" class="hidden md:block text-gray-800 hover:text-gray-600"
-					>Log in</a
-				>
+				<a id="login-btn" href="../src/login.html">Log in</a>
 			</nav>
-			<ul id="mobile-nav-links" class="navigation-links md:hidden bg-white shadow-md absolute w-full hidden">
-				<li><a href="#" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Historia</a></li>
-				<li>
-					<a href="../src/muntatge.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Muntatge</a>
-				</li>
-				<li><a href="../src/news.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Noticies</a></li>
-				<li>
-					<a href="../src/alvoltantdelabalena.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100"
-						>Al voltant de la balena</a
-					>
-				</li>
-				<li><a href="../src/login.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Log in</a></li>
-			</ul>
 		</header>
-		<script>
-			document.getElementById("hamburger-btn").addEventListener("click", function () {
-				const mobileNav = document.getElementById("mobile-nav-links");
-				const desktopNav = document.getElementById("nav-links");
-				mobileNav.classList.toggle("hidden");
-				desktopNav.classList.toggle("hidden");
-			});
-		</script>
 		<main class="px-4 md:px-24 lg:px-96 mt-16">
 			<h1 class="text-4xl font-bold text-primary mb-2 pt-16">
 				Las ballenas jorobadas reconquistan Río de Janeiro y dan alas al ecoturismo
@@ -61,6 +37,23 @@
 				Tras décadas desaparecida de las costas de la ciudad, la especie, que ya supera los 35.000 ejemplares,
 				retoma sus viejas rutas migratorias desde la Antártida hasta las cálidas aguas tropicales.
 			</h2>
+			<div class="flex items-center space-x-4 mb-8 text-gray-600">
+				<div class="flex items-center">
+					<img
+						src="../assets/images/avatar-placeholder.jpg"
+						alt="Author"
+						class="w-10 h-10 rounded-full mr-3"
+					/>
+					<div>
+						<p class="font-medium">By Sergi</p>
+						<time datetime="2025-02-21" class="text-sm">Feb 21, 2025</time>
+					</div>
+				</div>
+				<span>•</span>
+				<span>10 min read</span>
+				<span>•</span>
+				<button class="text-blue-600 hover:text-blue-800">Share Article</button>
+			</div>
 			<img
 				src="../assets/images/Humpback_Whale_underwater_shot (1).jpg"
 				alt="News Image"
@@ -90,5 +83,20 @@
 				</p>
 			</article>
 		</main>
+		<footer>
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<p>© 2025 Whale Project</p>
+						<p>info@whaleproject.org</p>
+					</div>
+					<div class="footer-social">
+						<a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="/assets/icons/x.svg" alt="X" /></a>
+						<a href="#"><img src="/assets/icons/instagram.svg" alt="Instagram" /></a>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

@@ -1,147 +1,132 @@
-@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-/* General styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  margin-top: 4rem;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
   color: #333;
-  font-family: "Poppins", sans-serif;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
 }
 
-header {
-  position: relative;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.container {
-  position: relative;
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  flex: 1;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Whale parts buttons */
-.whale-part {
-  margin: 10px 0;
-  padding: 15px;
-  background-color: #e0f7fa;
-  border: 1px solid #00acc1;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.whale-part:hover {
-  background-color: #b2ebf2;
-  border-color: #00838f;
-}
-
-.whale-part h2 {
-  margin: 0;
-  color: #00796b;
-}
-
-/* Whale image container */
-.whale-image-container {
-  position: relative;
-  width: 80%;
-  height: 80vh; /* Slightly smaller height */
-  margin: 0 auto; /* Center the image container */
-  border-radius: 10px; /* Rounded corners */
+.card {
+  background: #fff;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for a nice effect */
-  margin-bottom: 5rem;
-}
-
-.whale-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the container */
-}
-
-/* Clickable areas on the image */
-.clickable-area {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(255, 0, 0, 0.5);
-  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
+.card:hover {
+  transform: translateY(-5px);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card h2 {
+  padding: 1rem;
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+.card p {
+  padding: 0 1rem 1rem;
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
 
-/* Modal styles */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
-
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  position: relative;
+  background: #fff;
   max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 50px auto;
+  padding: 2rem;
+  border-radius: 15px;
+  animation: modalFadeIn 0.3s ease;
 }
-
-.close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-  color: black;
-  text-decoration: none;
+.modal-content .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 2rem;
   cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+.modal-content .close:hover {
+  color: #0d0d0d;
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+.modal-content h2 {
+  color: #333;
+  margin-top: 0;
+}
+.modal-content p {
+  color: #666;
+  line-height: 1.6;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .clickable-area {
-    display: none;
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  .whale-image {
-    display: none;
-  }
-  .whale-part {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  * {
-    color: #000;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-/* H1 styles */
-h1 {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  text-transform: uppercase;
-  font-family: "Poppins", serif; /* A nice font */
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-  color: #000;
-  border-radius: 5px;
+@media (max-width: 971px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .modal-content {
+    margin: 20px;
+    padding: 1rem;
+  }
 }/*# sourceMappingURL=alvoltantdelabalena.css.map */

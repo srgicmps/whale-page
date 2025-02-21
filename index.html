@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/header.css" />
+		<link rel="stylesheet" href="./css/footer.css" />
 		<script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
 		<script src="./js/user-check.js"></script>
 		<title>Balena</title>
@@ -56,38 +57,63 @@
 				</a>
 			</section>
 			<section id="news-container">
-				<div class="news-content">
-					<div class="news-header">
-						<img src="./assets/images/profile.jpg" alt="Profile Picture" class="profile-pic" />
-						<div class="author-info">
-							<h3 class="author-name">Sergi Camps</h3>
-							<h1 class="news-title">La balena fent natació</h1>
-							<h2 class="news-subtitle">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nobis sapiente consequatur
-								quos ipsam iure?
-							</h2>
+				<article class="news-content">
+					<a href="./src/news-details.html">
+						<div class="news-header">
+							<div class="author-info">
+								<div class="author-meta">
+									<img src="./assets/images/profile.jpg" alt="Profile Picture" class="profile-pic" />
+									<div class="author-details">
+										<h3 class="author-name">Sergi Camps</h3>
+										<div class="post-meta">
+											<time datetime="2025-02-21">Feb 21, 2025</time>
+											<span class="separator">•</span>
+											<span>10 min read</span>
+										</div>
+									</div>
+								</div>
+								<h1 class="news-title">La balena fent natació</h1>
+								<h2 class="news-subtitle">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nobis sapiente
+									consequatur quos ipsam iure?
+								</h2>
+							</div>
 						</div>
-					</div>
-					<div class="news-body">
-						<p class="news-text">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore quod optio accusantium
-							praesentium. Delectus eum, minus officia id ab, beatae, ipsum laudantium iure ex itaque
-							laboriosam nisi nobis enim doloremque sapiente accusantium neque. Eius sint alias sunt
-							pariatur aliquid dicta nam itaque eos blanditiis voluptatibus, veritatis fuga beatae
-							exercitationem porro? Quibusdam, ad quo? Quis quae maiores sed omnis ipsam nisi obcaecati
-							illum nihil numquam ullam, veniam harum fugit impedit iste culpa, velit minima at delectus
-							assumenda. Inventore ullam laudantium fugit?/p>
-						</p>
-						<img
-							src="./assets/images/Humpback_Whale_underwater_shot (1).jpg"
-							alt="News Image"
-							class="news-image"
-						/>
-					</div>
-				</div>
+						<div class="news-body">
+							<img
+								src="./assets/images/Humpback_Whale_underwater_shot (1).jpg"
+								alt="News Image"
+								class="news-image"
+							/>
+							<p class="news-text">
+								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore quod optio accusantium
+								praesentium. Delectus eum, minus officia id ab, beatae, ipsum laudantium iure ex itaque
+								laboriosam nisi nobis enim doloremque sapiente accusantium neque. Eius sint alias sunt
+								pariatur aliquid dicta nam itaque eos blanditiis voluptatibus, veritatis fuga beatae
+								exercitationem porro? Quibusdam, ad quo? Quis quae maiores sed omnis ipsam nisi
+								obcaecati illum nihil numquam ullam, veniam harum fugit impedit iste culpa, velit minima
+								at delectus assumenda. Inventore ullam laudantium fugit?
+							</p>
+						</div>
+					</a>
+				</article>
 			</section>
 		</main>
-		<footer></footer>
+		<footer>
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<p>© 2025 Whale Project</p>
+						<p>info@whaleproject.org</p>
+					</div>
+					<div class="footer-social">
+						<a href="#"><img src="./assets/icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="./assets/icons/x.svg" alt="X" /></a>
+						<a href="#"><img src="./assets/icons/instagram.svg" alt="Instagram" /></a>
+					</div>
+				</div>
+			</div>
+		</footer>
 
 		<script src="./src/js/mobile-nav.js"></script>
 	</body>

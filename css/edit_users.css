@@ -7,7 +7,6 @@
 }
 
 body {
-	animation: fadein 1s ease-in-out;
 	background: linear-gradient(135deg, #dadada, #ffffff);
 	align-items: flex-start;
 	height: 100vh;
@@ -16,18 +15,6 @@ body {
 	margin: 0;
 	font-family: "Poppins", sans-serif;
 }
-
-@keyframes fadein {
-	0% {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
 .container {
 	max-width: 800px;
 	margin: 0 auto;

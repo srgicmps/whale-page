@@ -21,13 +21,15 @@ header .navbar {
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 header .navbar #hamburger-btn {
   width: 30px;
   height: 30px;
 }
 header .navbar #logo {
+  width: -moz-fit-content;
   width: fit-content;
   height: 3rem;
 }
@@ -93,7 +95,9 @@ header .navbar a {
   }
   #nav-links {
     position: relative;
+    width: -moz-max-content;
     width: max-content;
+    height: -moz-max-content;
     height: max-content;
     padding: 0;
     top: 0;

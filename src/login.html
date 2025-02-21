@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../css/header.css" />
 		<link rel="stylesheet" href="../css/login.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 		<script src="./js/user-check.js"></script>
@@ -30,14 +32,29 @@
 		</header>
 		<div class="login-container">
 			<form id="loginForm">
-				<h1 id="login-title">Login</h1>
+				<h3 id="login-title">Iniciar Sessió</h3>
 				<div id="input-container">
-					<input type="text" id="email" name="email" required placeholder="Email" />
+					<input type="text" id="email" name="email" required placeholder="exemple@exemple.com" />
 					<input type="password" id="password" name="password" required placeholder="Password" />
 				</div>
-				<button id="submit-btn" type="submit">Login</button>
+				<button id="submit-btn" type="submit">Iniciar Sessió</button>
 			</form>
 		</div>
+		<footer>
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-info">
+						<p>© 2025 Whale Project</p>
+						<p>info@whaleproject.org</p>
+					</div>
+					<div class="footer-social">
+						<a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="/assets/icons/x.svg" alt="X" /></a>
+						<a href="#"><img src="/assets/icons/instagram.svg" alt="Instagram" /></a>
+					</div>
+				</div>
+			</div>
+		</footer>
 
 		<script src="../src/js/mobile-nav.js"></script>
 		<script>
