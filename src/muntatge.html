@@ -6,9 +6,11 @@
 		<link rel="stylesheet" href="../css/header.css" />
 		<link rel="stylesheet" href="../css/muntatge.css" />
 		<link rel="stylesheet" href="../css/footer.css" />
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 		<script src="./js/user-check.js"></script>
 		<title>Muntatge</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -31,10 +33,34 @@
 
 		<main>
 			<h1>Muntatge</h1>
-			<div class="gallery">
-				<img src="https://dummyimage.com/300.png/09f/fff" alt="Placeholder Image" class="gallery-item item1" />
-				<img src="https://dummyimage.com/300.png/09f/fff" alt="Placeholder Image" class="gallery-item item2" />
-				<img src="https://dummyimage.com/300.png/09f/fff" alt="Placeholder Image" class="gallery-item item3" />
+			<div class="gallery-container">
+				<div class="gallery-grid">
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge1.jpg" alt="Gallery Image 1" onclick="openModal(this)" />
+					</div>
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge2.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div>
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge3.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div>
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge4.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div>
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge5.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div>
+					<div class="gallery-item">
+						<img src="../assets/images/muntatge6.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div>
+					<!-- <div class="gallery-item">
+						<img src="../assets/images/muntatge2.jpg" alt="Gallery Image 2" onclick="openModal(this)" />
+					</div> -->
+				</div>
+			</div>
+			<div id="imageModal" class="modal">
+				<span class="close-button" onclick="closeModal()">&times;</span>
+				<img id="modalImage" src="" alt="Modal Image" />
 			</div>
 		</main>
 		<footer>
@@ -54,5 +80,6 @@
 		</footer>
 
 		<script src="/src/js/mobile-nav.js"></script>
+		<script src="/src/js/gallery.js"></script>
 	</body>
 </html>
