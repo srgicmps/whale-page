@@ -1,15 +1,13 @@
 $(document).ready(function () {
 	const users = JSON.parse(localStorage.getItem("user")) || [];
-
-	console.log(users);
-
-	function saveUsers(users) {
+	const adminUser = users.find((user) => user.name === "admin");
+	if (adminUser) {
+		adminUser.active = true;
 		localStorage.setItem("user", JSON.stringify(users));
 	}
 
 	const $container = $("<div>", { class: "container" });
-
-	const $title = $("<h1>", { text: "Edit Users", class: "title" });
+	const $title = $("<h1>", { text: "User Management", class: "title" });
 
 	const $table = $("<table>", { class: "user-table" }).append(
 		$("<thead>").append(
@@ -19,7 +17,7 @@ $(document).ready(function () {
 				$("<th>", { text: "Email" }),
 				$("<th>", { text: "Edit Users" }),
 				$("<th>", { text: "Edit News" }),
-				$("<th>", { text: "Edit Bone Files" }),
+				$("<th>", { text: "Edit Files" }),
 				$("<th>", { text: "Actions" })
 			)
 		),
@@ -27,13 +25,31 @@ $(document).ready(function () {
 	);
 
 	$.each(users, function (userKey, userValue) {
-		const $row = $("<tr>").append(
+		$("#row") = $("<tr>").append(
 			$("<td>", { text: userValue.id }),
 			$("<td>", { text: userValue.name }),
 			$("<td>", { text: userValue.email }),
-			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_users, disabled: false })),
-			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_news, disabled: false })),
-			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_bone_files, disabled: false })),
+			$("<td>", { class: "checkbox-cell" }).append(
+				$("<input>", {
+					type: "checkbox",
+					checked: userValue.edit_users,
+					disabled: userValue.name === "admin",
+				})
+			),
+			$("<td>", { class: "checkbox-cell" }).append(
+				$("<input>", {
+					type: "checkbox",
+					checked: userValue.edit_news,
+					disabled: userValue.name === "admin",
+				})
+			),
+			$("<td>", { class: "checkbox-cell" }).append(
+				$("<input>", {
+					type: "checkbox",
+					checked: userValue.edit_bone_files,
+					disabled: userValue.name === "admin",
+				})
+			),
 			$("<td>").append(
 				$("<button>", {
 					text: "Delete",
@@ -50,12 +66,18 @@ $(document).ready(function () {
 	$("#main-content").append($container);
 
 	$(document).on("click", ".delete-button", function () {
-		const userId = $(this).data("id");
-		const userIndex = users.findIndex((user) => user.id === userId);
-		if (userIndex !== -1) {
-			users.splice(userIndex, 1);
-			saveUsers(users);
-			location.reload();
+		if (confirm("Are you sure you want to delete this user?")) {
+			const userId = $(this).data("id");
+			const userIndex = users.findIndex((user) => user.id === userId);
+			if (userIndex !== -1) {
+				users.splice(userIndex, 1);
+				localStorage.setItem("user", JSON.stringify(users));
+				$(this)
+					.closest("tr")
+					.fadeOut(300, function () {
+						$(this).remove();
+					});
+			}
 		}
 	});
 
@@ -67,7 +89,7 @@ $(document).ready(function () {
 			user.edit_users = $row.find("input[type='checkbox']").eq(0).is(":checked");
 			user.edit_news = $row.find("input[type='checkbox']").eq(1).is(":checked");
 			user.edit_bone_files = $row.find("input[type='checkbox']").eq(2).is(":checked");
-			saveUsers(users);
+			localStorage.setItem("user", JSON.stringify(users));
 		}
 	});
 });

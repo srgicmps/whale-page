@@ -63,51 +63,6 @@
 		</footer>
 
 		<script src="../src/js/mobileNav.js"></script>
-		<script>
-			$(document).ready(function () {
-				const loginMessage = $("#login-message");
-
-				function showMessage(message, type) {
-					loginMessage.removeClass("hidden error success").addClass(type).text(message).fadeIn();
-				}
-
-				function validateLogin(email, password) {
-					const users = JSON.parse(localStorage.getItem("user")) || [];
-					const user = users.find((user) => user.email === email);
-
-					if (user) {
-						const saltedPassword = password + user.salt_hash;
-						const passwordHash = CryptoJS.SHA256(saltedPassword).toString();
-
-						if (passwordHash === user.password_hash) {
-							localStorage.setItem("loggedInUser", JSON.stringify(user));
-
-							if (user.is_first_login) {
-								showMessage("First time login - Redirecting to change password...", "success");
-								setTimeout(() => {
-									window.location.href = "../src/change-password.html";
-								}, 1500);
-							} else {
-								showMessage("Login successful - Redirecting...", "success");
-								setTimeout(() => {
-									window.location.href = "../index.html";
-								}, 1500);
-							}
-						} else {
-							showMessage("Invalid username or password", "error");
-						}
-					} else {
-						showMessage("Invalid username or password", "error");
-					}
-				}
-
-				$("#loginForm").submit(function (event) {
-					event.preventDefault();
-					const email = $("#email").val();
-					const password = $("#password").val();
-					validateLogin(email, password);
-				});
-			});
-		</script>
+		<script src="./js/validateLogin.js"></script>
 	</body>
 </html>
