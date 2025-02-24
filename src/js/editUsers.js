@@ -34,7 +34,14 @@ $(document).ready(function () {
 			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_users, disabled: false })),
 			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_news, disabled: false })),
 			$("<td>").append($("<input>", { type: "checkbox", checked: userValue.edit_bone_files, disabled: false })),
-			$("<td>").append($("<button>", { text: "Delete", class: "delete-button", "data-id": userValue.id }))
+			$("<td>").append(
+				$("<button>", {
+					text: "Delete",
+					class: "delete-button",
+					"data-id": userValue.id,
+					disabled: userValue.name === "admin",
+				})
+			)
 		);
 		$table.find("tbody").append($row);
 	});

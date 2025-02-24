@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../css/footer.css" />
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<script src="./js/user-check.js"></script>
+		<script src="./js/userCheck.js"></script>
 		<title>Muntatge</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 	</head>
@@ -26,8 +26,12 @@
 					<li><a href="./muntatge.html">Muntatge</a></li>
 					<li><a href="./news.html">Noticies</a></li>
 					<li><a href="./alvoltantdelabalena.html">Al voltant de la balena</a></li>
+					<li class="admin-link hidden"><a href="../src/editUsers.html">Edit Users</a></li>
 				</ul>
-				<a id="login-btn" href="./login.html">Log in</a>
+				<a id="login-btn" href="login.html">Log in</a>
+				<div id="user-menu" style="display: none">
+					<button id="logout-btn">Logout</button>
+				</div>
 			</nav>
 		</header>
 
@@ -79,7 +83,7 @@
 			</div>
 		</footer>
 
-		<script src="/src/js/mobile-nav.js"></script>
+		<script src="/src/js/mobileNav.js"></script>
 		<script src="/src/js/gallery.js"></script>
 	</body>
 </html>

@@ -10,7 +10,6 @@ function closeModal() {
 	modal.style.display = "none";
 }
 
-// Close modal when clicking outside the image
 document.addEventListener("DOMContentLoaded", () => {
 	const modal = document.getElementById("imageModal");
 	modal.addEventListener("click", (e) => {
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
-	// Close modal with ESC key
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") {
 			closeModal();

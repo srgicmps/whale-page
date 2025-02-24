@@ -9,7 +9,7 @@
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-		<script src="./js/user-check.js"></script>
+		<script src="./js/userCheck.js"></script>
 		<title>Login MBW</title>
 	</head>
 	<body>
@@ -26,8 +26,12 @@
 					<li><a href="../src/muntatge.html">Muntatge</a></li>
 					<li><a href="../src/news.html">Noticies</a></li>
 					<li><a href="../src/alvoltantdelabalena.html">Al voltant de la balena</a></li>
+					<li class="admin-link hidden"><a href="../src/editUsers.html">Edit Users</a></li>
 				</ul>
-				<a id="login-btn" href="../src/login.html">Log in</a>
+				<a id="login-btn" href="login.html">Log in</a>
+				<div id="user-menu" style="display: none">
+					<button id="logout-btn">Logout</button>
+				</div>
 			</nav>
 		</header>
 		<div class="login-container">
@@ -37,6 +41,8 @@
 					<input type="text" id="email" name="email" required placeholder="exemple@exemple.com" />
 					<input type="password" id="password" name="password" required placeholder="Password" />
 				</div>
+				<div id="login-message" class="login-message hidden"></div>
+
 				<button id="submit-btn" type="submit">Iniciar Sessió</button>
 			</form>
 		</div>
@@ -56,24 +62,42 @@
 			</div>
 		</footer>
 
-		<script src="../src/js/mobile-nav.js"></script>
+		<script src="../src/js/mobileNav.js"></script>
 		<script>
 			$(document).ready(function () {
+				const loginMessage = $("#login-message");
+
+				function showMessage(message, type) {
+					loginMessage.removeClass("hidden error success").addClass(type).text(message).fadeIn();
+				}
+
 				function validateLogin(email, password) {
 					const users = JSON.parse(localStorage.getItem("user")) || [];
 					const user = users.find((user) => user.email === email);
+
 					if (user) {
 						const saltedPassword = password + user.salt_hash;
 						const passwordHash = CryptoJS.SHA256(saltedPassword).toString();
+
 						if (passwordHash === user.password_hash) {
-							alert("Login successful");
 							localStorage.setItem("loggedInUser", JSON.stringify(user));
-							window.location.href = "../index.html";
+
+							if (user.is_first_login) {
+								showMessage("First time login - Redirecting to change password...", "success");
+								setTimeout(() => {
+									window.location.href = "../src/change-password.html";
+								}, 1500);
+							} else {
+								showMessage("Login successful - Redirecting...", "success");
+								setTimeout(() => {
+									window.location.href = "../index.html";
+								}, 1500);
+							}
 						} else {
-							alert("Login failed");
+							showMessage("Invalid username or password", "error");
 						}
 					} else {
-						alert("Login failed");
+						showMessage("Invalid username or password", "error");
 					}
 				}
 

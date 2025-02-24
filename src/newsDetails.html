@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../css/footer.css" />
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<script src="./js/user-check.js"></script>
+		<script src="./js/userCheck.js"></script>
 	</head>
 	<body class="">
 		<header>
@@ -26,8 +26,12 @@
 					<li><a href="../src/muntatge.html">Muntatge</a></li>
 					<li><a href="../src/news.html">Noticies</a></li>
 					<li><a href="../src/alvoltantdelabalena.html">Al voltant de la balena</a></li>
+					<li class="admin-link hidden"><a href="../src/editUsers.html">Edit Users</a></li>
 				</ul>
-				<a id="login-btn" href="../src/login.html">Log in</a>
+				<a id="login-btn" href="login.html">Log in</a>
+				<div id="user-menu" style="display: none">
+					<button id="logout-btn">Logout</button>
+				</div>
 			</nav>
 		</header>
 		<main class="px-4 md:px-24 lg:px-96 mt-16">
