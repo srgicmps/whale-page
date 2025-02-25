@@ -25,7 +25,7 @@ $(document).ready(function () {
 	);
 
 	$.each(users, function (userKey, userValue) {
-		$("#row") = $("<tr>").append(
+		var $row = $("<tr>").append(
 			$("<td>", { text: userValue.id }),
 			$("<td>", { text: userValue.name }),
 			$("<td>", { text: userValue.email }),
