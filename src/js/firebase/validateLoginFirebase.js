@@ -1,42 +1,54 @@
 import { loginUser } from "./firebase.js";
 
 $(document).ready(function () {
-	const loginMessage = $("#login-message");
+	const messageContainer = $("#login-message");
 
 	function showMessage(message, type) {
-		loginMessage.removeClass("hidden error success").addClass(type).text(message).fadeIn();
+		messageContainer.removeClass("hidden error success").addClass(type).text(message).fadeIn();
 	}
 
-	async function validateLoginFirebase(email, password) {
+	$("#loginForm").submit(async function (e) {
+		e.preventDefault();
+
+		const email = $("#email").val().trim();
+		const password = $("#password").val();
+
+		// validacio basica del email
+		if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			showMessage("Si us plau, introdueix un email vàlid", "error");
+			return;
+		}
+
+		// validacio basica de la contrasenya
+		if (!password) {
+			showMessage("Si us plau, introdueix una contrasenya", "error");
+			return;
+		}
+
 		try {
 			await loginUser(email, password);
-			showMessage("Inici de sessió correcte - Redirigint...", "success");
+			showMessage("Iniciant sessió...", "success");
+			// NOTA: no cal redirigir aqui ja que loginuser ho gestiona
 		} catch (error) {
-			let errorMessage = "Error d'inici de sessió";
+			let errorMessage = "Error en iniciar sessió";
 
+			// missatges d'error personalitzats basats en els codis d'error de firebase
 			switch (error.code) {
 				case "auth/user-not-found":
+					errorMessage = "No s'ha trobat cap usuari amb aquest email";
+					break;
 				case "auth/wrong-password":
-					errorMessage = "Usuari o contrasenya incorrectes";
+					errorMessage = "Contrasenya incorrecta";
 					break;
 				case "auth/invalid-email":
 					errorMessage = "Format d'email invàlid";
 					break;
-				case "auth/too-many-requests":
-					errorMessage = "Massa intents fallits. Prova-ho més tard";
+				case "auth/user-disabled":
+					errorMessage = "Aquest compte ha estat desactivat";
 					break;
-				default:
-					errorMessage = "Error inesperat. Torna-ho a provar";
 			}
 
 			showMessage(errorMessage, "error");
 		}
-	}
-
-	$("#loginForm").submit(function (event) {
-		event.preventDefault();
-		const email = $("#email").val();
-		const password = $("#password").val();
-		validateLoginFirebase(email, password);
 	});
 });

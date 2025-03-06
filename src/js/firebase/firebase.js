@@ -72,8 +72,8 @@ export const loginUser = async (email, password) => {
 export const changePassword = async (newPassword) => {
 	try {
 		//aço funciona pq no hi ha cap user autenticat, aunque hi hagi un user default, ningu s'ha autenticat encara
-		const user = auth.currentUser;
-		if (!user) throw new Error("No user logged in");
+		// const user = auth.currentUser;
+		// if (!user) throw new Error("No user logged in");
 
 		// actualitzar contrasenya a Firebase Auth
 		await updatePassword(user, newPassword);
@@ -106,14 +106,15 @@ export const createDefaultUser = async () => {
 	const defaultPassword = "PatataBullida123!";
 
 	try {
-		// comprovar si l'usuari existeix en autenticacio
+		// comprovar si l'usuari existeix en autenticacio sense iniciar sessió
 		try {
-			await loginUser(defaultEmail, defaultPassword);
+			// Intentar buscar l'usuari per email (mètode indirecte)
+			await signInWithEmailAndPassword(auth, defaultEmail, defaultPassword);
 			console.log("S'usuari default ja existeix"); // debugging
-			await logoutUser();
+			await signOut(auth); // Sortir immediatament per no activar la redirección
 			return;
 		} catch (error) {
-			// si l'inici de sessio falla crea l'usuari
+			// si l'usuari no existeix, crea'l
 			const userCredential = await registerUser(defaultEmail, defaultPassword);
 			// crear document d'usuari a firestore with extended permissions
 			const userDocRef = doc(db, "users", userCredential.user.uid);
