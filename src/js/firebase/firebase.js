@@ -73,8 +73,8 @@ export const loginUser = async (email, password) => {
 export const changePassword = async (newPassword) => {
 	try {
 		//aço funciona pq no hi ha cap user autenticat, aunque hi hagi un user default, ningu s'ha autenticat encara
-		const user = auth.currentUser;
-		if (!user) throw new Error("No user logged in");
+		// const user = auth.currentUser;
+		// if (!user) throw new Error("No user logged in");
 
 		// actualitzar contrasenya a Firebase Auth
 		await updatePassword(user, newPassword);
