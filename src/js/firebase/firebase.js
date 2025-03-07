@@ -18,18 +18,19 @@ import {
 	createUserWithEmailAndPassword,
 	signOut,
 	updatePassword,
+	onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: "AIzaSyAerRzHvqyWtQtTGcVEmC84_OAytl9qmXU",
-	authDomain: "minorcanwhale.firebaseapp.com",
-	projectId: "minorcanwhale",
-	storageBucket: "minorcanwhale.firebasestorage.app",
-	messagingSenderId: "470539123482",
-	appId: "1:470539123482:web:ae11dbfffaac3cf41a8aa3",
+	apiKey: "AIzaSyCM1VeZKl1nzBabqZU-5aP61X5Q3ASqcCA",
+	authDomain: "whale-fc416.firebaseapp.com",
+	projectId: "whale-fc416",
+	storageBucket: "whale-fc416.firebasestorage.app",
+	messagingSenderId: "247899107092",
+	appId: "1:247899107092:web:c1dcbfe748783ef95e5c01",
 };
 const app = initializeApp(firebaseConfig);
 
@@ -61,9 +62,9 @@ export const loginUser = async (email, password) => {
 			// inici de sessio regular
 			window.location.href = "../index.html";
 		}
-
 		return userCredential;
 	} catch (error) {
+		console.error("Error en loginUser:", error);
 		throw error;
 	}
 };
@@ -100,40 +101,65 @@ export const logoutUser = async () => {
 	}
 };
 
+export const hasUsers = async () => {
+	const usersCollection = collection(db, "users");
+	const usersSnapshot = await getDocs(usersCollection);
+
+	return !usersSnapshot.empty;
+};
+
 // Cream s'usuari default
 export const createDefaultUser = async () => {
 	const defaultEmail = "desenvolupador@iesjoanramis.org";
 	const defaultPassword = "PatataBullida123!";
-
-	try {
-		// comprovar si l'usuari existeix en autenticacio
-		try {
-			await loginUser(defaultEmail, defaultPassword);
-			console.log("S'usuari default ja existeix"); // debugging
-			await logoutUser();
-			return;
-		} catch (error) {
-			// si l'inici de sessio falla crea l'usuari
-			const userCredential = await registerUser(defaultEmail, defaultPassword);
-			// crear document d'usuari a firestore with extended permissions
-			const userDocRef = doc(db, "users", userCredential.user.uid);
-			await setDoc(userDocRef, {
-				email: defaultEmail,
-				name: "admin",
-				role: "admin", // he creat un role aixi es mes "profesinoal"
-				edit_users: true, // pot editar usuaris
-				edit_news: true, // pot editar noticies
-				edit_bone_files: true, // pot editar arxius
-				active: true, // compte actiu
-				firstLogin: true, // primer inici de sessió
-				createdAt: serverTimestamp(),
-			});
-
-			console.log("Usuari defautl creat correctament");
-			await logoutUser();
-		}
-	} catch (error) {
-		console.error("Error creatnt l'usuari default:", error);
-		throw error;
-	}
+	const userCredential = await registerUser(defaultEmail, defaultPassword);
+	// crear document d'usuari a firestore with extended permissions
+	const userDocRef = doc(db, "users", userCredential.user.uid);
+	await setDoc(userDocRef, {
+		email: defaultEmail,
+		name: "admin",
+		role: "admin", // he creat un role aixi es mes "profesinoal"
+		edit_users: true, // pot editar usuaris
+		edit_news: true, // pot editar noticies
+		edit_bone_files: true, // pot editar arxius
+		active: true, // compte actiu
+		firstLogin: true, // primer inici de sessió
+		createdAt: serverTimestamp(),
+	});
+	console.log("Usuari defautl creat correctament");
+	return;
 };
+
+// export const createDefaultUser = async () => {
+// 	const defaultEmail = "desenvolupador@iesjoanramis.org";
+// 	const defaultPassword = "PatataBullida123!";
+
+// 	try {
+// 		const methods = await fetchSignInMethodsForEmail(auth, defaultEmail);
+
+// 		if (methods.length > 0) {
+// 			console.log("S'usuari default ja existeix");
+// 			return;
+// 		}
+// 		// si l'inici de sessio falla crea l'usuari
+// 		const userCredential = await registerUser(defaultEmail, defaultPassword);
+// 		// crear document d'usuari a firestore with extended permissions
+// 		const userDocRef = doc(db, "users", userCredential.user.uid);
+// 		await setDoc(userDocRef, {
+// 			email: defaultEmail,
+// 			name: "admin",
+// 			role: "admin", // he creat un role aixi es mes "profesinoal"
+// 			edit_users: true, // pot editar usuaris
+// 			edit_news: true, // pot editar noticies
+// 			edit_bone_files: true, // pot editar arxius
+// 			active: true, // compte actiu
+// 			firstLogin: true, // primer inici de sessió
+// 			createdAt: serverTimestamp(),
+// 		});
+
+// 		console.log("Usuari default creat correctament");
+// 	} catch (error) {
+// 		console.error("Error creant l'usuari default:", error);
+// 		throw error;
+// 	}
+// };

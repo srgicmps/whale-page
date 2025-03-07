@@ -11,10 +11,15 @@ import {
 	orderBy,
 } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 
+import { auth } from "./firebase.js";
+
 function canEditNews() {
-	// TODO: NEED TO FINISH THIS WHEN I HAVE ALL THE USER THING SORTED OUT IN FIREBASE
-	const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-	return loggedInUser && loggedInUser.edit_news === true;
+	auth = firebase.auth();
+	const user = auth.currentUser;
+	if (!user) return false;
+	const allowedRoles = ["admin"];
+	const userRole = user.role;
+	return allowedRoles.includes(userRole);
 }
 
 // per obtenir les noticies guardades a firestore
