@@ -1,146 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="output.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../css/header.css" />
-		<link rel="stylesheet" href="../css/footer.css" />
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
-		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
-		<script src="./js/userCheck.js"></script>
+    <title>Notícies</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
 
-		<title>Notícies</title>
-		<style>
-			body {
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				margin: 0;
-			}
+      main {
+        flex: 1;
+        min-height: calc(100vh - 96px - 80px);
+      }
 
-			main {
-				flex: 1;
-				min-height: calc(100vh - 96px - 80px);
-			}
+      footer {
+        margin-top: auto;
+      }
+      .content-block {
+        user-select: none;
+      }
 
-			footer {
-				margin-top: auto;
-			}
-			.content-block {
-				user-select: none;
-			}
+      .content-block.dragging {
+        opacity: 0.5;
+      }
 
-			.content-block.dragging {
-				opacity: 0.5;
-			}
-
-			.droppable-hover {
-				background-color: rgba(59, 130, 246, 0.1);
-				border-color: rgb(59, 130, 246);
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<nav class="navbar">
-				<a id="hamburger-btn">
-					<img src="../assets/icons/bars-solid-dark.svg" class="hamburger-btn__darkicon" alt="" />
-				</a>
-				<a class="logo-container" href="../index.html">
-					<img src="../img/logo.png" id="logo" />
-				</a>
-				<ul id="nav-links" class="navigation-links hidden">
-					<li><a href="#">Historia</a></li>
-					<li><a href="../src/muntatge.html">Muntatge</a></li>
-					<li><a href="../src/news.html">Noticies</a></li>
-					<li><a href="../src/alvoltantdelabalena.html">Al voltant de la balena</a></li>
-					<li class="admin-link hidden"><a href="../src/editUsers.html">Edit Users</a></li>
-				</ul>
-				<a id="login-btn" href="login.html">Log in</a>
-				<div id="user-menu" style="display: none">
-					<button id="logout-btn">Logout</button>
-				</div>
-			</nav>
-		</header>
-		<main class="px-4 md:px-20 lg:px-32 pt-0 mt-24 mb-10 flex-grow">
-			<h1 class="font-bold text-black text-7xl text-left p-8 px-0">Notícies</h1>
-			<button
-				id="add-news-btn"
-				class="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-			>
-				Add New Article
-			</button>
-			<div id="content-tools" class="editor-only mb-4 p-4 bg-gray-100 rounded-lg shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Content Blocks</h3>
-				<div class="flex gap-4">
-					<div class="content-block" data-type="text" draggable="true">
-						<div
-							class="p-3 bg-white rounded-lg border-2 border-dashed border-gray-300 cursor-move hover:bg-gray-50 transition-colors"
-						>
-							<div class="flex items-center gap-2">
-								<svg
-									class="w-5 h-5 text-gray-600"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M4 6h16M4 12h16m-7 6h7"
-									></path>
-								</svg>
-								<span>Text Block</span>
-							</div>
-						</div>
-					</div>
-					<div class="content-block" data-type="image" draggable="true">
-						<div
-							class="p-3 bg-white rounded-lg border-2 border-dashed border-gray-300 cursor-move hover:bg-gray-50 transition-colors"
-						>
-							<div class="flex items-center gap-2">
-								<svg
-									class="w-5 h-5 text-gray-600"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-									></path>
-								</svg>
-								<span>Image Block</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="news-container mb-8"></div>
-		</main>
-		<footer>
-			<div class="footer-container">
-				<div class="footer-content">
-					<div class="footer-info">
-						<p>© 2025 Whale Project</p>
-						<p>info@whaleproject.org</p>
-					</div>
-					<div class="footer-social">
-						<a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
-						<a href="#"><img src="/assets/icons/x.svg" alt="X" /></a>
-						<a href="#"><img src="/assets/icons/instagram.svg" alt="Instagram" /></a>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script src="js/newsManager.js"></script>
-		<script src="/src/js/mobileNav.js"></script>
-		<script type="module" src="js/firebase/init.js"></script>
-	</body>
+      .droppable-hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-color: rgb(59, 130, 246);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a id="hamburger-btn">
+          <img
+            src="../assets/icons/bars-solid-dark.svg"
+            class="hamburger-btn__darkicon"
+            alt=""
+          />
+        </a>
+        <a class="logo-container" href="../index.html">
+          <img src="../img/logo.png" id="logo" />
+        </a>
+        <ul id="nav-links" class="navigation-links hidden">
+          <li><a href="#">Historia</a></li>
+          <li><a href="../src/muntatge.html">Muntatge</a></li>
+          <li><a href="../src/news.html">Noticies</a></li>
+          <li>
+            <a href="../src/alvoltantdelabalena.html"
+              >Al voltant de la balena</a
+            >
+          </li>
+          <li class="admin-link hidden">
+            <a href="../src/editUsers.html">Edit Users</a>
+          </li>
+        </ul>
+        <a id="login-btn" href="login.html">Log in</a>
+        <div id="user-menu" style="display: none">
+          <button id="logout-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="px-4 md:px-20 lg:px-32 pt-0 mt-24 mb-10 flex-grow">
+      <h1 class="font-bold text-black text-7xl text-left p-8 px-0">Notícies</h1>
+      <button
+        id="add-news-btn"
+        class="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+      >
+        Add New Article
+      </button>
+      <div
+        id="content-tools"
+        class="editor-only mb-4 p-4 bg-gray-100 rounded-lg shadow-sm"
+      >
+        <h3 class="text-lg font-semibold mb-2">Content Blocks</h3>
+        <div class="flex gap-4">
+          <div class="content-block" data-type="text" draggable="true">
+            <div
+              class="p-3 bg-white rounded-lg border-2 border-dashed border-gray-300 cursor-move hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+                <span>Text Block</span>
+              </div>
+            </div>
+          </div>
+          <div class="content-block" data-type="image" draggable="true">
+            <div
+              class="p-3 bg-white rounded-lg border-2 border-dashed border-gray-300 cursor-move hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>Image Block</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="news-container mb-8"></div>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <p>© 2025 Whale Project</p>
+            <p>info@whaleproject.org</p>
+          </div>
+          <div class="footer-social">
+            <a href="#"
+              ><img src="/assets/icons/facebook.svg" alt="Facebook"
+            /></a>
+            <a href="#"><img src="/assets/icons/x.svg" alt="X" /></a>
+            <a href="#"
+              ><img src="/assets/icons/instagram.svg" alt="Instagram"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/firebase/newsManagerFirebase.js"></script>
+    <script src="/src/js/mobileNav.js"></script>
+    <script type="module" src="js/firebase/init.js"></script>
+  </body>
 </html>
